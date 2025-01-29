@@ -1,0 +1,20 @@
+1737442416336	geckodriver	INFO	Listening on 127.0.0.1:55700
+1737442419434	mozrunner::runner	INFO	Running command: "C:\\Windows\\SysWOW64\\config\\systemprofile\\.cache\\selenium\\firefox\\win64\\134.0.1\\firefox.exe" "--ma ... ing-port" "55701" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\WINDOWS\\SystemTemp\\rust_mozprofile4hCAwQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1737442419968	Marionette	INFO	Marionette enabled
+1737442420137	Marionette	INFO	Listening on port 55708
+Read port: 55708
+WebDriver BiDi listening on ws://127.0.0.1:55701
+1737442420250	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Fallback SW-WR + D3D11 to SW-WR
+[GFX1-]: Fallback remains SW-WR
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript error: resource://gre/modules/WindowsLaunchOnLogin.sys.mjs, line 35: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.open]
+JavaScript error: resource://gre/modules/WindowsLaunchOnLogin.sys.mjs, line 35: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.open]
+DevTools listening on ws://127.0.0.1:55701/devtools/browser/689af09a-61eb-414a-9549-0defbd06772c
+1737442430247	Marionette	INFO	Stopped listening on port 55708
+Dynamically enable window occlusion 1
