@@ -27,5 +27,6 @@ Wait until the error message is located
 
 Verify whether the message is correct or not
     ${result} =    Get Text    ${Logging_Error_Element_Validation}
+    Log    ${result}
     Should Be Equal As Strings    ${result}     Incorrect username/password.
     Element Text Should Be    ${Logging_Error_Element_Validation}    Incorrect username/password.
