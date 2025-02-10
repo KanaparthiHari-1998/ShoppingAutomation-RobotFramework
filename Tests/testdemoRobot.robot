@@ -26,8 +26,6 @@ Successful Login Test
     Wait until the element is displayed    ${Shop_Page_Validation}
     Get Shop Data from WebPage and add an item to Cart    ${required_item} 
 
-
-
 *** Keywords ***
 Enter the credentials and interact with radio and checkboxes
     [Arguments]    ${Username}    ${Password}

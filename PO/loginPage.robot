@@ -21,6 +21,7 @@ Enter the credentials and interact with radio and checkboxes
     Select Checkbox    terms
     Click Button    id:signInBtn
 
+
 Wait until the error message is located
     GenericResource.Wait until the element in the locator is displayed     ${Logging_Error_Element_Validation}
 
