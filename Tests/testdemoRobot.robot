@@ -3,7 +3,7 @@ Documentation     To validate login page
 Library           SeleniumLibrary
 Library           Collections
 Test Setup        Open Chrome with the specified URL
-Test Teardown     Wait for sometime and Close Current BROWSER
+Test Teardown     Wait for test execution to complete and Close BROWSER
 Resource          ../TestResources/GenericResource.robot
 
 *** Variables ***

@@ -3,7 +3,7 @@ Documentation     To validate login page
 Library           SeleniumLibrary
 Library           Collections
 Test Setup        Open Chrome with the specified URL
-Test Teardown     Wait for sometime and Close Current BROWSER
+Test Teardown     Wait for test execution to complete and Close BROWSER
 Resource          ../TestResources/GenericResource.robot
 
 *** Variables ***
@@ -25,7 +25,7 @@ Unsuccessful Login Test
 Successful Login Test
     Enter the credentials and interact with radio and checkboxes   ${Username}    ${Valid_Password}   
     Wait until the element is displayed    ${Shop_Page_Validation}
-    Get Shop Data from WebPage and add an item to Cart    ${required_item} 
+    Get Shop Data from WebPage and add an item to Cart    ${required_item}
     
 *** Keywords ***
 
@@ -48,7 +48,7 @@ Wait until the element is displayed
 Verify whether the message is correct or not
     ${result} =    Get Text    css:.alert-danger
     Should Be Equal As Strings    ${result}     Incorrect username/password.
-    Element Text Should Be    css:.alert-danger    Incorrect username/password.   
+    Element Text Should Be    css:.alert-danger    Incorrect username/password.
 
 Get Shop Data from WebPage and add an item to Cart 
     [Tags]        SMOKE

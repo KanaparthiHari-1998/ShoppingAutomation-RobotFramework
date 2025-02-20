@@ -3,7 +3,7 @@ Documentation     To validate login page
 Library           SeleniumLibrary
 Library           Collections
 Test Setup        Open Chrome with the specified URL
-Test Teardown     Wait for sometime and Close Current BROWSER
+Test Teardown     Wait for test execution to complete and Close BROWSER
 Resource          ../TestResources/GenericResource.robot
 Resource          ../PO/loginPage.robot
 Resource          ../PO/shopPage.robot
@@ -14,7 +14,7 @@ Resource        ../PO/locationAndOrderConfirmationPage.robot
 *** Variables ***
 
 @{required_item}                            Blackberry    Nokia Edge
-${Location}                                 India
+${Location}                                 India2
 
 *** Test Cases ***    
 

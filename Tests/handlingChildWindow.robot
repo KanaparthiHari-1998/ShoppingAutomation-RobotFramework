@@ -4,7 +4,7 @@ Library              SeleniumLibrary
 Library              String
 Library              Collections
 Test Setup           Open Chrome with the specified URL
-Test Teardown        Wait for sometime and Close Current BROWSER
+Test Teardown        Wait for test execution to complete and Close BROWSER
 Resource             ../TestResources/GenericResource.robot
 
 *** Variables ***
@@ -22,7 +22,7 @@ Validate the child window and grab the text from and use it in main window
 *** Keywords ***
 
 Click on the blinking text
-    Click Element    xpath://div[@class='float-right']/a[1]
+    Click Element    css:.blinkingText
     Sleep            3    
 
 Verify the child window is opened or not 

@@ -15,7 +15,7 @@ Open Chrome with the specified URL
     Open Browser    ${URL}    ${Browser} 
     Maximize Browser Window
 
-Wait for sometime and Close Current BROWSER
+Wait for test execution to complete and Close BROWSER
     Close Browser
 
 Wait until the element in the locator is displayed
