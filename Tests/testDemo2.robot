@@ -62,6 +62,7 @@ Get Shop Data from WebPage and add an item to Cart
             BREAK
         END
         Append To List    ${List_Of_Items_From_Shop}    ${text}
-        Log    ${List_Of_Items_From_Shop}        
+        Log    ${List_Of_Items_From_Shop}    
+        Log    ${List_Of_Items_From_Shop}    
     END
     
