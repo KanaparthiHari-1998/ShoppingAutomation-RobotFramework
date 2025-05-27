@@ -17,6 +17,7 @@ Verify That Cart Data Matches Expected Data
 
     FOR    ${element}    IN    @{List_Of_Items_From_Cart}
         ${text}    Get Text    ${element}
+        Log     ${text}
         Append To List    ${returned_List_From_Cart}    ${text}
     END
 

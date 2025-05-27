@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     Setup and teardown methods for the Test Suite
 Library           SeleniumLibrary
+#Documentation           This is a Generic file to write common keywords
 
 *** Variables ***
 ${URL}                          https://rahulshettyacademy.com/loginpagePractise/
@@ -8,7 +9,6 @@ ${Browser}                      Chrome
 ${Username}                     rahulshettyacademy
 ${Valid_Password}               learning
 ${Invalid_Password}             123456
-    
 
 *** Keywords ***
 Open Chrome with the specified URL
@@ -19,5 +19,5 @@ Wait for test execution to complete and Close BROWSER
     Close Browser
 
 Wait until the element in the locator is displayed
-    [Arguments]    ${locator}
+    [Arguments]             ${locator}
     Wait Until Element Is Visible    ${locator}    timeout=10s

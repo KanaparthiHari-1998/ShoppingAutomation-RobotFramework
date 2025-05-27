@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.6 on win32)" generated="2025-03-24T10:59:38.684906" rpa="false" schemaversion="5">
+<suite id="s1" name="sessionCreation" source="F:\Python\PythonTesting\RobotFramework\RobotPractice\sessionCreation.robot">
+<test id="s1-t1" name="Get the data from the provided API" line="11">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-03-24T10:59:39.342901" level="INFO">Creating Session using : alias=mySession, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>mySession</arg>
+<arg>${data_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-24T10:59:39.342901" elapsed="0.001029"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-24T10:59:39.636779" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-24T10:59:39.636779" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 24 Mar 2025 05:29:39 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1741600917&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=WCnrjU%2BsxhZOmM5guAHP98uufy9a7havBFVDMbWOa1A%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1741600917&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=WCnrjU%2BsxhZOmM5guAHP98uufy9a7havBFVDMbWOa1A%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"440-ZjsmMKR8P3usr2uJZbOCGCxC3Uw"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '2733', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '9253c5a52cc446a2-BOM', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=72023&amp;min_rtt=44648&amp;rtt_var=36296&amp;sent=4&amp;recv=6&amp;lost=0&amp;retrans=0&amp;sent_bytes=2834&amp;recv_bytes=775&amp;delivery_rate=65042&amp;cwnd=250&amp;unsent_bytes=0&amp;cid=d3aaea7447da7a2d&amp;ts=86&amp;x=0"'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
+ </msg>
+<msg time="2025-03-24T10:59:39.636779" level="INFO">C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-03-24T10:59:39.638867" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>mySession</arg>
+<arg>${end_point}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.343930" elapsed="0.294937"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.641000" level="INFO">${json_data} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${json_data}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.638867" elapsed="0.002133"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.642016" level="INFO">{'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.jpg'}, {'id': 8, 'email': 'lindsay.ferguson@reqres.in', 'first_name': 'Lindsay', 'last_name': 'Ferguson', 'avatar': 'https://reqres.in/img/faces/8-image.jpg'}, {'id': 9, 'email': 'tobias.funke@reqres.in', 'first_name': 'Tobias', 'last_name': 'Funke', 'avatar': 'https://reqres.in/img/faces/9-image.jpg'}, {'id': 10, 'email': 'byron.fields@reqres.in', 'first_name': 'Byron', 'last_name': 'Fields', 'avatar': 'https://reqres.in/img/faces/10-image.jpg'}, {'id': 11, 'email': 'george.edwards@reqres.in', 'first_name': 'George', 'last_name': 'Edwards', 'avatar': 'https://reqres.in/img/faces/11-image.jpg'}, {'id': 12, 'email': 'rachel.howell@reqres.in', 'first_name': 'Rachel', 'last_name': 'Howell', 'avatar': 'https://reqres.in/img/faces/12-image.jpg'}], 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral', 'text': 'Tired of writing endless social media content? Let Content Caddy generate it for you.'}}</msg>
+<arg>${json_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.642016" elapsed="0.001064"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.644095" level="INFO">${user_data} = [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.jpg'}, {'id': 8, 'email': 'lindsay.ferguson@reqres.in', '...</msg>
+<var>${user_data}</var>
+<arg>${json_data}[data]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.643080" elapsed="0.001015"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.645154" level="INFO">[{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.jpg'}, {'id': 8, 'email': 'lindsay.ferguson@reqres.in', 'first_name': 'Lindsay', 'last_name': 'Ferguson', 'avatar': 'https://reqres.in/img/faces/8-image.jpg'}, {'id': 9, 'email': 'tobias.funke@reqres.in', 'first_name': 'Tobias', 'last_name': 'Funke', 'avatar': 'https://reqres.in/img/faces/9-image.jpg'}, {'id': 10, 'email': 'byron.fields@reqres.in', 'first_name': 'Byron', 'last_name': 'Fields', 'avatar': 'https://reqres.in/img/faces/10-image.jpg'}, {'id': 11, 'email': 'george.edwards@reqres.in', 'first_name': 'George', 'last_name': 'Edwards', 'avatar': 'https://reqres.in/img/faces/11-image.jpg'}, {'id': 12, 'email': 'rachel.howell@reqres.in', 'first_name': 'Rachel', 'last_name': 'Howell', 'avatar': 'https://reqres.in/img/faces/12-image.jpg'}]</msg>
+<arg>${user_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.645154" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.647631" level="INFO">michael.lawson@reqres.in</msg>
+<arg>${user}[email]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.646169" elapsed="0.001462"/>
+</kw>
+<var name="${user}">{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.jpg'}</var>
+<status status="PASS" start="2025-03-24T10:59:39.646169" elapsed="0.001462"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.649786" level="INFO">lindsay.ferguson@reqres.in</msg>
+<arg>${user}[email]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.648696" elapsed="0.001090"/>
+</kw>
+<var name="${user}">{'id': 8, 'email': 'lindsay.ferguson@reqres.in', 'first_name': 'Lindsay', 'last_name': 'Ferguson', 'avatar': 'https://reqres.in/img/faces/8-image.jpg'}</var>
+<status status="PASS" start="2025-03-24T10:59:39.648696" elapsed="0.001090"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.651922" level="INFO">tobias.funke@reqres.in</msg>
+<arg>${user}[email]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.650854" elapsed="0.001068"/>
+</kw>
+<var name="${user}">{'id': 9, 'email': 'tobias.funke@reqres.in', 'first_name': 'Tobias', 'last_name': 'Funke', 'avatar': 'https://reqres.in/img/faces/9-image.jpg'}</var>
+<status status="PASS" start="2025-03-24T10:59:39.649786" elapsed="0.002136"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.654007" level="INFO">byron.fields@reqres.in</msg>
+<arg>${user}[email]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.652947" elapsed="0.001060"/>
+</kw>
+<var name="${user}">{'id': 10, 'email': 'byron.fields@reqres.in', 'first_name': 'Byron', 'last_name': 'Fields', 'avatar': 'https://reqres.in/img/faces/10-image.jpg'}</var>
+<status status="PASS" start="2025-03-24T10:59:39.651922" elapsed="0.002085"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.655035" level="INFO">george.edwards@reqres.in</msg>
+<arg>${user}[email]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.655035" elapsed="0.001011"/>
+</kw>
+<var name="${user}">{'id': 11, 'email': 'george.edwards@reqres.in', 'first_name': 'George', 'last_name': 'Edwards', 'avatar': 'https://reqres.in/img/faces/11-image.jpg'}</var>
+<status status="PASS" start="2025-03-24T10:59:39.654007" elapsed="0.002039"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.657190" level="INFO">rachel.howell@reqres.in</msg>
+<arg>${user}[email]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.657190" elapsed="0.000000"/>
+</kw>
+<var name="${user}">{'id': 12, 'email': 'rachel.howell@reqres.in', 'first_name': 'Rachel', 'last_name': 'Howell', 'avatar': 'https://reqres.in/img/faces/12-image.jpg'}</var>
+<status status="PASS" start="2025-03-24T10:59:39.656046" elapsed="0.002160"/>
+</iter>
+<var>${user}</var>
+<value>@{user_data}</value>
+<status status="PASS" start="2025-03-24T10:59:39.646169" elapsed="0.012037"/>
+</for>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-24T10:59:39.660242" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-24T10:59:39.659224" elapsed="0.002026"/>
+</kw>
+<status status="PASS" start="2025-03-24T10:59:39.342901" elapsed="0.319349"/>
+</test>
+<doc>To create a REST API session and handling the requests</doc>
+<status status="PASS" start="2025-03-24T10:59:38.687225" elapsed="0.977503"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="sessionCreation">sessionCreation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

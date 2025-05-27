@@ -9,6 +9,7 @@ class ShopItems:
 
     @keyword
     def add_items_to_cart(self, reqProducts):
+        
         self.SelLib = BuiltIn().get_library_instance("SeleniumLibrary")
         shop_data_locator = "css:.card-title"
         # @{web_elements}    Get WebElements    ${shop_items}

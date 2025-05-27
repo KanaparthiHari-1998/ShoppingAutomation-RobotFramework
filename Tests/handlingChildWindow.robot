@@ -1,10 +1,10 @@
 *** Settings ***
-Documentation        Handling the child window from testdemoRobot file
+Documentation        Handling the child window from testDemoRobot file
 Library              SeleniumLibrary
 Library              String
 Library              Collections
-Test Setup           Open Chrome with the specified URL
-Test Teardown        Wait for test execution to complete and Close BROWSER
+# Test Setup           Open Chrome with the specified URL
+# Test Teardown        Wait for test execution to complete and Close BROWSER
 Resource             ../TestResources/GenericResource.robot
 
 *** Variables ***
@@ -14,7 +14,7 @@ ${actual_text}          ""
 *** Test Cases ***
 Validate the child window and grab the text from and use it in main window
     [Tags]        SMOKE
-    Click on the blinking text 
+    Click on the blinking text  
     Verify the child window is opened or not 
     Grab the email id from the child window
     Switch to parent window and enter the text
@@ -26,7 +26,7 @@ Click on the blinking text
     Sleep            3    
 
 Verify the child window is opened or not 
-    Switch Window    New
+    Switch Window   
     Wait Until Element Is Visible    css:.inner-box
     
 Grab the email id from the child window

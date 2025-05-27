@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.6 on win32)" generated="2025-05-18T11:11:36.911385" rpa="false" schemaversion="5">
+<suite id="s1" name="Test E2E" source="F:\Python\PythonTesting\RobotFramework\OrangeHRM_E2EE\Tests\test_e2e.robot">
+<test id="s1-t1" name="Login with Invalid Credentials" line="15">
+<kw name="Open the browser with the specified Url" owner="GenericResource" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:37.654932" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-18T11:11:37.653934" elapsed="6.793966"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-18T11:11:44.447900" elapsed="0.073737"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:37.652937" elapsed="6.869741"/>
+</kw>
+<kw name="Wait until the element is located" owner="GenericResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T11:11:44.524079" elapsed="0.417403"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:11:44.941482" level="INFO">xpath://input[@name='username']</msg>
+<arg>${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:11:44.941482" elapsed="0.000000"/>
+</kw>
+<arg>${Input_Username_Locator}</arg>
+<status status="PASS" start="2025-05-18T11:11:44.522678" elapsed="0.418804"/>
+</kw>
+<kw name="Login with invalid Credentials" owner="loginPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:44.942488" level="INFO">Typing text 'harikumar' into text field 'xpath://input[@name='username']'.</msg>
+<arg>${Input_Username_Locator}</arg>
+<arg>${Invalid_Username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:11:44.942488" elapsed="0.126520"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:45.070291" level="INFO">Typing password into text field 'xpath://input[@name='password']'.</msg>
+<msg time="2025-05-18T11:11:45.122355" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${Input_Password_Locator}</arg>
+<arg>${Invalid_Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:11:45.069008" elapsed="0.139714"/>
+</kw>
+<kw name="Validate Password Masking" owner="loginPage">
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:45.231464" level="INFO">${password_type} = password</msg>
+<var>${password_type}</var>
+<arg>${Input_Password_Locator}</arg>
+<arg>type</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:11:45.210099" elapsed="0.021365"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${password_type}</arg>
+<arg>password</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-05-18T11:11:45.232001" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:45.208722" elapsed="0.023279"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:45.232001" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${Login_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:11:45.232001" elapsed="0.106559"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:44.942488" elapsed="0.396072"/>
+</kw>
+<kw name="Wait until the element is located" owner="GenericResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T11:11:45.340068" elapsed="1.196892"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:11:46.538142" level="INFO">xpath://p[@class= 'oxd-text oxd-text--p oxd-alert-content-text']</msg>
+<arg>${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:11:46.538142" elapsed="0.001069"/>
+</kw>
+<arg>${Invalid_Credentials_Error}</arg>
+<status status="PASS" start="2025-05-18T11:11:45.340068" elapsed="1.199143"/>
+</kw>
+<kw name="Validate the error message" owner="GenericResource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:46.650275" level="INFO">${Error_Message} = Invalid credentials</msg>
+<var>${Error_Message}</var>
+<arg>${Error_message_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:11:46.541221" elapsed="0.109054"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:11:46.651279" level="INFO">Invalid credentials</msg>
+<arg>${Error_Message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:11:46.651279" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Error_Message}</arg>
+<arg>${Invalid_Credentials_Error_Message}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-05-18T11:11:46.652276" elapsed="0.000000"/>
+</kw>
+<arg>${Invalid_Credentials_Error}</arg>
+<status status="PASS" start="2025-05-18T11:11:46.540225" elapsed="0.113048"/>
+</kw>
+<kw name="Wait for the test execution to complete and close the browser" owner="GenericResource" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-18T11:11:46.654492" elapsed="2.280802"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:46.653273" elapsed="2.282021"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:37.650936" elapsed="11.284358"/>
+</test>
+<test id="s1-t2" name="Login with Blank Credentials" line="20">
+<kw name="Open the browser with the specified Url" owner="GenericResource" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:48.939805" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-18T11:11:48.938802" elapsed="2.877471"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-18T11:11:51.817614" elapsed="2.463887"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:48.938802" elapsed="5.342699"/>
+</kw>
+<kw name="Wait until the element is located" owner="GenericResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T11:11:54.282539" elapsed="0.503795"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:11:54.787343" level="INFO">xpath://input[@name='username']</msg>
+<arg>${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:11:54.787343" elapsed="0.000000"/>
+</kw>
+<arg>${Input_Username_Locator}</arg>
+<status status="PASS" start="2025-05-18T11:11:54.281501" elapsed="0.505842"/>
+</kw>
+<kw name="Login with Empty Credentials" owner="loginPage">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:54.789358" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${Login_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:11:54.788351" elapsed="0.129499"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:54.788351" elapsed="0.129499"/>
+</kw>
+<kw name="Wait for the test execution to complete and close the browser" owner="GenericResource" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-18T11:11:54.918355" elapsed="2.310787"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:54.918355" elapsed="2.310787"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:48.937760" elapsed="8.292599"/>
+</test>
+<test id="s1-t3" name="End to End Automation Testing of Orange HRM" line="24">
+<kw name="Open the browser with the specified Url" owner="GenericResource" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:11:57.236014" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-18T11:11:57.235018" elapsed="8.375493"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-18T11:12:05.610511" elapsed="0.029812"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:57.234011" elapsed="8.406312"/>
+</kw>
+<kw name="Wait until the element is located" owner="GenericResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T11:12:05.640323" elapsed="0.698045"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:12:06.338368" level="INFO">xpath://input[@name='username']</msg>
+<arg>${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.338368" elapsed="0.000000"/>
+</kw>
+<arg>${Input_Username_Locator}</arg>
+<status status="PASS" start="2025-05-18T11:12:05.640323" elapsed="0.698045"/>
+</kw>
+<kw name="Login with Valid Credentials" owner="loginPage">
+<kw name="Get Credentials from login page using KDD" owner="GenericResource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:06.367252" level="INFO">${all_Parts} = Username : Admin</msg>
+<var>${all_Parts}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.339365" elapsed="0.027887"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-18T11:12:06.367252" level="INFO">${Split_Parts} = ['Username', ':', 'Admin']</msg>
+<var>${Split_Parts}</var>
+<arg>${all_Parts}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.367252" elapsed="0.001040"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-05-18T11:12:06.368292" level="INFO">${Required_Credential} = Admin</msg>
+<var>${Required_Credential}</var>
+<arg>${Split_Parts}[-1]</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.368292" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:12:06.368292" level="INFO">Admin</msg>
+<arg>${Required_Credential}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.368292" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${Required_Credential}</value>
+<status status="PASS" start="2025-05-18T11:12:06.368292" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-18T11:12:06.368292" level="INFO">${username} = Admin</msg>
+<var>${username}</var>
+<arg>${Valid_Username_Locator}</arg>
+<status status="PASS" start="2025-05-18T11:12:06.339365" elapsed="0.028927"/>
+</kw>
+<kw name="Get Credentials from login page using KDD" owner="GenericResource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:06.408855" level="INFO">${all_Parts} = Password : admin123</msg>
+<var>${all_Parts}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.369751" elapsed="0.039104"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-18T11:12:06.410873" level="INFO">${Split_Parts} = ['Password', ':', 'admin123']</msg>
+<var>${Split_Parts}</var>
+<arg>${all_Parts}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.409861" elapsed="0.001012"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-05-18T11:12:06.412859" level="INFO">${Required_Credential} = admin123</msg>
+<var>${Required_Credential}</var>
+<arg>${Split_Parts}[-1]</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.411873" elapsed="0.000986"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:12:06.413856" level="INFO">admin123</msg>
+<arg>${Required_Credential}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.412859" elapsed="0.000997"/>
+</kw>
+<return>
+<value>${Required_Credential}</value>
+<status status="PASS" start="2025-05-18T11:12:06.413856" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-18T11:12:06.413856" level="INFO">${password} = admin123</msg>
+<var>${password}</var>
+<arg>${Valid_Password_Locator}</arg>
+<status status="PASS" start="2025-05-18T11:12:06.369751" elapsed="0.044105"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:06.414940" level="INFO">Typing text 'Admin' into text field 'xpath://input[@name='username']'.</msg>
+<arg>${Input_Username_Locator}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.413856" elapsed="0.139078"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:06.554269" level="INFO">Typing text 'admin123' into text field 'xpath://input[@name='password']'.</msg>
+<arg>${Input_Password_Locator}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.554269" elapsed="0.212465"/>
+</kw>
+<kw name="Validate Password Masking" owner="loginPage">
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:06.783561" level="INFO">${password_type} = password</msg>
+<var>${password_type}</var>
+<arg>${Input_Password_Locator}</arg>
+<arg>type</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.766734" elapsed="0.016827"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${password_type}</arg>
+<arg>password</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.783561" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:12:06.766734" elapsed="0.018018"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:06.784752" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${Login_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.784752" elapsed="0.096676"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:12:06.338368" elapsed="0.543060"/>
+</kw>
+<kw name="Wait until the element is located" owner="GenericResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T11:12:06.882425" elapsed="2.409927"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-18T11:12:09.293396" level="INFO">xpath://button[@class='oxd-icon-button orangehrm-quick-launch-icon']</msg>
+<arg>${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.293396" elapsed="0.000000"/>
+</kw>
+<arg>${Dashboard_locator}</arg>
+<status status="PASS" start="2025-05-18T11:12:06.882425" elapsed="2.410971"/>
+</kw>
+<kw name="Verify quick launch links" owner="dashboardpage">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:09.319969" level="INFO">@{Quick_links} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="82b8402a8472f717e89c1184afa5ff0f", element="f.26178C1DA6AC5656A8ADD0CAAC603E80.d.95D362116BCD1AC7C16152A7B20673A4.e.33")&gt; | &lt;selenium.webdr...</msg>
+<var>@{Quick_links}</var>
+<arg>${Quick_links_web_element_locator}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.294406" elapsed="0.025563"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:09.337183" level="INFO">${item} = Assign Leave</msg>
+<var>${item}</var>
+<arg>${element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.320992" elapsed="0.016191"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:09.339285" level="INFO">Clicking element 'xpath://button[@title='Assign Leave']'.</msg>
+<arg>xpath://button[@title='${item}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.338195" elapsed="0.509975"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Quick_links_web_element_locator}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.848170" elapsed="0.012535"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.860705" elapsed="0.002279"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.862984" elapsed="0.037337"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="82b8402a8472f717e89c1184afa5ff0f", element="f.26178C1DA6AC5656A8ADD0CAAC603E80.d.95D362116BCD1AC7C16152A7B20673A4.e.33")&gt;</var>
+<status status="PASS" start="2025-05-18T11:12:09.319969" elapsed="0.580352"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:09.912947" level="INFO">${item} = Leave List</msg>
+<var>${item}</var>
+<arg>${element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.901318" elapsed="0.011629"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:09.912947" level="INFO">Clicking element 'xpath://button[@title='Leave List']'.</msg>
+<arg>xpath://button[@title='${item}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:09.912947" elapsed="0.540769"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Quick_links_web_element_locator}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2025-05-18T11:12:10.455371" elapsed="2.037080"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-05-18T11:12:12.492451" elapsed="0.001150"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2025-05-18T11:12:12.494620" elapsed="0.046652"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="82b8402a8472f717e89c1184afa5ff0f", element="f.26178C1DA6AC5656A8ADD0CAAC603E80.d.95D362116BCD1AC7C16152A7B20673A4.e.35")&gt;</var>
+<status status="PASS" start="2025-05-18T11:12:09.901318" elapsed="2.639954"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:12.569885" level="INFO">${item} = Timesheets</msg>
+<var>${item}</var>
+<arg>${element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:12.541272" elapsed="0.028613"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:12.570881" level="INFO">Clicking element 'xpath://button[@title='Timesheets']'.</msg>
+<arg>xpath://button[@title='${item}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:12.570881" elapsed="0.503401"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Quick_links_web_element_locator}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2025-05-18T11:12:13.074282" elapsed="2.027075"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-05-18T11:12:15.101357" elapsed="0.003469"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2025-05-18T11:12:15.104826" elapsed="0.047228"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="82b8402a8472f717e89c1184afa5ff0f", element="f.26178C1DA6AC5656A8ADD0CAAC603E80.d.95D362116BCD1AC7C16152A7B20673A4.e.36")&gt;</var>
+<status status="PASS" start="2025-05-18T11:12:12.541272" elapsed="2.610782"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:15.166021" level="INFO">${item} = Apply Leave</msg>
+<var>${item}</var>
+<arg>${element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:15.152054" elapsed="0.013967"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:15.166021" level="INFO">Clicking element 'xpath://button[@title='Apply Leave']'.</msg>
+<arg>xpath://button[@title='${item}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:15.166021" elapsed="0.511444"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Quick_links_web_element_locator}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2025-05-18T11:12:15.677465" elapsed="2.049524"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-05-18T11:12:17.726989" elapsed="0.001444"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2025-05-18T11:12:17.728433" elapsed="0.019033"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="82b8402a8472f717e89c1184afa5ff0f", element="f.26178C1DA6AC5656A8ADD0CAAC603E80.d.95D362116BCD1AC7C16152A7B20673A4.e.37")&gt;</var>
+<status status="PASS" start="2025-05-18T11:12:15.152054" elapsed="2.595412"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:17.764461" level="INFO">${item} = My Leave</msg>
+<var>${item}</var>
+<arg>${element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:17.747466" elapsed="0.016995"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:17.765508" level="INFO">Clicking element 'xpath://button[@title='My Leave']'.</msg>
+<arg>xpath://button[@title='${item}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:17.764461" elapsed="0.527858"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Quick_links_web_element_locator}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2025-05-18T11:12:18.292319" elapsed="2.035906"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-05-18T11:12:20.329222" elapsed="0.003487"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2025-05-18T11:12:20.332709" elapsed="0.048875"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="82b8402a8472f717e89c1184afa5ff0f", element="f.26178C1DA6AC5656A8ADD0CAAC603E80.d.95D362116BCD1AC7C16152A7B20673A4.e.38")&gt;</var>
+<status status="PASS" start="2025-05-18T11:12:17.747466" elapsed="2.634118"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:20.396532" level="INFO">${item} = My Timesheet</msg>
+<var>${item}</var>
+<arg>${element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:20.382746" elapsed="0.013786"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T11:12:20.396532" level="INFO">Clicking element 'xpath://button[@title='My Timesheet']'.</msg>
+<arg>xpath://button[@title='${item}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T11:12:20.396532" elapsed="0.518308"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Quick_links_web_element_locator}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2025-05-18T11:12:20.914840" elapsed="2.035598"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-05-18T11:12:22.951509" elapsed="0.003244"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2025-05-18T11:12:22.954753" elapsed="0.051468"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="82b8402a8472f717e89c1184afa5ff0f", element="f.26178C1DA6AC5656A8ADD0CAAC603E80.d.95D362116BCD1AC7C16152A7B20673A4.e.39")&gt;</var>
+<status status="PASS" start="2025-05-18T11:12:20.381584" elapsed="2.624637"/>
+</iter>
+<var>${element}</var>
+<value>@{Quick_links}</value>
+<status status="PASS" start="2025-05-18T11:12:09.319969" elapsed="13.686252"/>
+</for>
+<status status="PASS" start="2025-05-18T11:12:09.294406" elapsed="13.711815"/>
+</kw>
+<kw name="Wait for the test execution to complete and close the browser" owner="GenericResource" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-18T11:12:23.008633" elapsed="2.315677"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:12:23.007489" elapsed="2.318077"/>
+</kw>
+<status status="PASS" start="2025-05-18T11:11:57.232912" elapsed="28.092654"/>
+</test>
+<doc>To Automate the End to End Orange HRM application</doc>
+<status status="PASS" start="2025-05-18T11:11:36.912893" elapsed="48.416902"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Test E2E">Test E2E</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
