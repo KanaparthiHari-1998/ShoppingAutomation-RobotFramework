@@ -21,9 +21,9 @@ Enter the credentials and interact with radio and checkboxes
     Select From List By Value    css:select[class='form-control']    teach
     Select Checkbox    terms
     Click Button    id:signInBtn
-
+    
 Wait until the error message is located
-    GenericResource.Wait until the element in the locator is displayed     ${Logging_Error_Element_Validation}
+    Wait until the element in the locator is displayed     ${Logging_Error_Element_Validation}
 
 Verify whether the message is correct or not
     ${result} =    Get Text    ${Logging_Error_Element_Validation}
